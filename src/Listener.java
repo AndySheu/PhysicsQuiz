@@ -6,31 +6,34 @@ public class Listener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-	// TODO Auto-generated method stub
+	 System.out.println("Mouse Clicked (" + e.getX() + "," + e.getY() + ")");
 	
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-	// TODO Auto-generated method stub
+	// Works
+	 System.out.println("Mouse Pressed (" + e.getX() + "," + e.getY() + ")");
 	
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-	// TODO Auto-generated method stub
+	 System.out.println("Mouse Released (" + e.getX() + "," + e.getY() + ")");
 	
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-	// TODO Auto-generated method stub
+	// Works
+//	 System.out.println("Mouse Entered (" + e.getX() + "," + e.getY() + ")");
 	
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-	// TODO Auto-generated method stub
+	// I dunno what this does
+//	 System.out.println("Mouse Exited (" + e.getX() + "," + e.getY() + ")");
 	
     }
 

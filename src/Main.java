@@ -22,7 +22,7 @@ public class Main {
 	if (Var.TESTING) {
 	    Var.frame.setResizable(true);
 	    Var.frame.setAlwaysOnTop(false);
-	} else {
+	} else {	
 	    Var.frame.setResizable(false);
 	    Var.frame.setAlwaysOnTop(true);
 	}

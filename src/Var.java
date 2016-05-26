@@ -4,7 +4,7 @@ import java.awt.Component;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.2";
     
     public static JFrame frame;
     public static ArrayList<Component> frameElements;
