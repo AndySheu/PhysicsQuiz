@@ -27,9 +27,8 @@ public class Main {
 	    Var.frame.setAlwaysOnTop(true);
 	}
 	
-	Var.panel = new ImagePanel();
+	Var.panel = new ImagePanel("./src/GitHub-Mark.png");
 	
-//	Var.panel.addKeyListener(Var.listener);
 	Var.panel.addMouseListener(Var.listener);
 	Var.frameElements.add(Var.panel);
 	

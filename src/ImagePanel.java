@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public class ImagePanel extends JPanel {
     private Image img;
@@ -58,16 +58,11 @@ public class ImagePanel extends JPanel {
     public Image getImage() {
 	return img;
     }
-
-    public void keyTyped(KeyEvent e) {
-
+    
+    public void clicked(MouseEvent e) {
+	if (e.getX() > x && e.getX() < (x + width) && e.getY() > y && e.getY() < (y + height)) {
+	    System.out.println("CLICKED!");
+	}
     }
 
-    public void keyPressed(KeyEvent e) {
-
-    }
-
-    public void keyReleased(KeyEvent e) {
-
-    }
 }

@@ -4,7 +4,7 @@ import java.awt.Component;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "0.2";
+    public static final String VERSION = "0.3";
     
     public static JFrame frame;
     public static ArrayList<Component> frameElements;
@@ -17,9 +17,4 @@ public class Var {
     public static final int FPS = 100;
     
     public static final boolean TESTING = true;
-    
-    public static final boolean PRINT_LOCATION = false;
-    public static final boolean PRINT_OUT_OF_BOUNDS = false;
-    public static final boolean PRINT_KEYSTROKE = false;
-    public static final boolean PRINT_KEYTYPE = false;
 }
