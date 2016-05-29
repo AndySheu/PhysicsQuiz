@@ -145,7 +145,7 @@ public class Main {
 		Var.mode = Var.SELECT_ANSWER;
 		break;
 	    default:
-		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
+		System.out.println("Oh, no! Defaulting on switch statement! Var.mode = " + Var.mode);
 		break;
 	}
     }
@@ -176,8 +176,9 @@ public class Main {
 		answerExplanationVisible(true);
 		correctVisible(false);
 		incorrectVisible(false);
+		break;
 	    default:
-		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
+		System.out.println("Oh, no! Defaulting on switch statement! Var.mode = " + Var.mode);
 		break;
 	}
     }
