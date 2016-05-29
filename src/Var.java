@@ -16,8 +16,8 @@ public class Var {
     public static CorrectAnswerBox correctAnswerBox;
     
     public static final int SELECT_ANSWER = 1;
-    public static final int ANSWER_CORRECT = 2;
-    public static final int ANSWER_INCORRECT = 3;
+    public static final int CORRECT_ANSWER = 2;
+    public static final int INCORRECT_ANSWER = 3;
     public static final int INTRO = 0;
     
     public static int mode = SELECT_ANSWER;

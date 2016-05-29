@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 public class Main {
     public static void main(String[] args) {
 	runInit();
-//	while (true) {
-//	    runLoop();
-////	    wait(1000);
-//	}
+	// while (true) {
+	// runLoop();
+	//// wait(1000);
+	// }
     }
     
     private static void runInit() {
@@ -21,7 +21,7 @@ public class Main {
 	if (Var.TESTING) {
 	    Var.frame.setResizable(true);
 	    Var.frame.setAlwaysOnTop(false);
-	} else {	
+	} else {
 	    Var.frame.setResizable(false);
 	    Var.frame.setAlwaysOnTop(true);
 	}
@@ -30,38 +30,38 @@ public class Main {
 	Var.frame.addMouseListener(Var.listener);
 	
 	Var.questionBox = new QuestionBox("./src/QuestionBox.png");
-	Var.questionBox.setLoc(125,-25);
+	Var.questionBox.setLoc(125, -25);
 	Var.frameElements.add(Var.questionBox);
 	
 	Var.answerBox1 = new AnswerBox("./src/AnswerBox.png", 1);
-	Var.answerBox1.setLoc(200,250);
+	Var.answerBox1.setLoc(200, 250);
 	Var.frameElements.add(Var.answerBox1);
 	
 	Var.answerBox2 = new AnswerBox("./src/AnswerBox.png", 2);
-	Var.answerBox2.setLoc(750,250);
+	Var.answerBox2.setLoc(750, 250);
 	Var.frameElements.add(Var.answerBox2);
 	
 	Var.answerBox3 = new AnswerBox("./src/AnswerBox.png", 3);
-	Var.answerBox3.setLoc(200,450);
+	Var.answerBox3.setLoc(200, 450);
 	Var.frameElements.add(Var.answerBox3);
 	
 	Var.answerBox4 = new AnswerBox("./src/AnswerBox.png", 4);
-	Var.answerBox4.setLoc(750,450);
+	Var.answerBox4.setLoc(750, 450);
 	Var.frameElements.add(Var.answerBox4);
 	
 	Var.answerBox5 = new AnswerBox("./src/AnswerBox.png", 5);
-	Var.answerBox5.setLoc(475,650);
+	Var.answerBox5.setLoc(475, 650);
 	Var.frameElements.add(Var.answerBox5);
 	
 	Var.correctAnswerBox = new CorrectAnswerBox("./src/CorrectAnswerBox.png");
-	Var.correctAnswerBox.setLoc(475,250);
+	Var.correctAnswerBox.setLoc(225, 250);
 	Var.correctAnswerBox.setVisible(false);
 	Var.frameElements.add(Var.correctAnswerBox);
 	
 	// Necessary to get box #5 to work pre-loop
 	Var.panel = new ImagePanel();
 	Var.frameElements.add(Var.panel);
-//	Var.answerBox6.setVisible(true);
+	// Var.answerBox6.setVisible(true);
 	
 	for (Component c : Var.frameElements) {
 	    Var.frame.add(c);
@@ -77,7 +77,7 @@ public class Main {
     private static void runLoop() {
 	for (ImagePanel c : Var.frameElements) {
 	    c.setLocation(c.x, c.y);
-//	    c.repaint();
+	    // c.repaint();
 	}
     }
     
@@ -89,30 +89,43 @@ public class Main {
     }
     
     public static void mousePressed(int x, int y) {
-	for (ImagePanel c : Var.frameElements) {
-	    if(c.isVisible() && c.checkClicked(x, y) && c instanceof AnswerBox) {
+	switch (Var.mode) {
+	    case Var.SELECT_ANSWER:
+		for (ImagePanel c : Var.frameElements) {
+		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and clicked
+			if (c instanceof AnswerBox) {
+			    nextMode();
+			}
+		    }
+		}
+		break;
+	    case Var.CORRECT_ANSWER:
 		nextMode();
-	    }
+		break;
+	    case Var.INCORRECT_ANSWER:
+		nextMode();
+		break;
 	}
+
     }
     
     public static void nextMode() {
-	switch(Var.mode) {
+	switch (Var.mode) {
 	    case Var.SELECT_ANSWER:
 		if (checkAnswer()) {
-		    Var.mode = Var.ANSWER_CORRECT;
+		    Var.mode = Var.CORRECT_ANSWER;
 		} else {
-		    Var.mode = Var.ANSWER_INCORRECT;
+		    Var.mode = Var.INCORRECT_ANSWER;
 		}
 		answerVisible(false);
 		correctAnswerVisible(true);
 		break;
-	    case Var.ANSWER_CORRECT:
+	    case Var.CORRECT_ANSWER:
 		Var.mode = Var.SELECT_ANSWER;
 		answerVisible(true);
 		correctAnswerVisible(false);
 		break;
-	    case Var.ANSWER_INCORRECT:
+	    case Var.INCORRECT_ANSWER:
 		Var.mode = Var.SELECT_ANSWER;
 		answerVisible(true);
 		correctAnswerVisible(false);
@@ -126,7 +139,7 @@ public class Main {
     private static void answerVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof AnswerBox) {
-	    	c.setVisible(flag);
+		c.setVisible(flag);
 	    }
 	}
     }
@@ -134,7 +147,7 @@ public class Main {
     private static void correctAnswerVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof CorrectAnswerBox) {
-	    	c.setVisible(flag);
+		c.setVisible(flag);
 	    }
 	}
     }
