@@ -44,6 +44,7 @@ public class Main {
     
     private static void runLoop() {
 	for (Component c : Var.frameElements) {
+	    c.setLocation(100,100);
 	    c.repaint();
 	}
     }
