@@ -16,7 +16,5 @@ public class Var {
     
     public static final int MAX_HEIGHT = 896;
     public static final int MAX_WIDTH = 1440;
-    public static final int FPS = 100;
-    
     public static final boolean TESTING = true;
 }

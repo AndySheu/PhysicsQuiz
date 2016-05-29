@@ -64,10 +64,14 @@ public class ImagePanel extends JPanel {
 	return img;
     }
     
-    public void clicked(MouseEvent e) {
-	if (e.getX() > x && e.getX() < (x + width) && e.getY() > y && e.getY() < (y + height)) {
-	    System.out.println("CLICKED!");
+    public void checkClicked(int cx, int cy) {
+	if (cx > x && cx < (x + width) && cy > y && cy < (y + height)) {
+	    clicked();
 	}
+    }
+    
+    public void clicked() {
+	// You should override this if you want something to be clicked.
     }
 
 }
