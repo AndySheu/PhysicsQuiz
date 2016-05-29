@@ -119,6 +119,9 @@ public class Main {
 	    case Var.INCORRECT_ANSWER:
 		nextMode();
 		break;
+	    case Var.ANSWER_EXPLANATION:
+		nextMode();
+		break;
 	}
 	updateScreen();
     }
@@ -133,9 +136,12 @@ public class Main {
 		}
 		break;
 	    case Var.CORRECT_ANSWER:
-		Var.mode = Var.SELECT_ANSWER;
+		Var.mode = Var.ANSWER_EXPLANATION;
 		break;
 	    case Var.INCORRECT_ANSWER:
+		Var.mode = Var.ANSWER_EXPLANATION;
+		break;
+	    case Var.ANSWER_EXPLANATION:
 		Var.mode = Var.SELECT_ANSWER;
 		break;
 	    default:
@@ -169,7 +175,7 @@ public class Main {
 		answerSelectionVisible(false);
 		answerExplanationVisible(true);
 		correctVisible(false);
-		incorrectVisible(true);
+		incorrectVisible(false);
 	    default:
 		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
 		break;
