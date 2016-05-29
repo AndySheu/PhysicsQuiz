@@ -4,13 +4,13 @@ import java.awt.Component;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "0.3";
+    public static final String VERSION = "0.4";
     
     public static JFrame frame;
-    public static ArrayList<Component> frameElements;
+    public static ArrayList<ImagePanel> frameElements;
     
     public static Listener listener;
-    public static ImagePanel panel;
+    public static ImagePanel panel, questionBox, answerBox;
     
     public static final int MAX_HEIGHT = 896;
     public static final int MAX_WIDTH = 1440;

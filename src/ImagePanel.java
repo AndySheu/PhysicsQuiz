@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 
 public class ImagePanel extends JPanel {
     private Image img;
-    private double x, y, width, height;
+    public int x, y, width, height;
 
     public ImagePanel() {
 	
@@ -26,6 +26,11 @@ public class ImagePanel extends JPanel {
 	setDoubleBuffered(true);
     }
 
+    public void setLoc(int x, int y) {
+	this.x = x;
+	this.y = y;
+    }
+    
     public void setImage(Image img) {
 	this.img = img;
 
@@ -35,8 +40,8 @@ public class ImagePanel extends JPanel {
 	setMinimumSize(size);
 	setSize(size);
 
-	this.width = size.getWidth();
-	this.height = size.getHeight();
+	this.width = (int)size.getWidth();
+	this.height = (int)size.getHeight();
 
 	repaint();
     }
