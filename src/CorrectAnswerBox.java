@@ -1,7 +1,7 @@
 
 public class CorrectAnswerBox extends ImagePanel {
-    public CorrectAnswerBox(String s) {
-	super(s);
+    public CorrectAnswerBox() {
+	super("./src/CorrectAnswerBox.png");
     }
     
     @Override

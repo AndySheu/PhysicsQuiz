@@ -4,7 +4,7 @@ import java.awt.Component;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "0.5";
+    public static final String VERSION = "1.0";
     
     public static JFrame frame;
     public static ArrayList<ImagePanel> frameElements;
@@ -14,6 +14,7 @@ public class Var {
     public static AnswerBox answerBox1, answerBox2, answerBox3, answerBox4, answerBox5;
     public static ImagePanel panel;
     public static CorrectAnswerBox correctAnswerBox;
+    public static AnswerExplanationBox answerExplanationBox;
     
     public static final int SELECT_ANSWER = 1;
     public static final int CORRECT_ANSWER = 2;

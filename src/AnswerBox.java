@@ -1,8 +1,8 @@
 
 public class AnswerBox extends ImagePanel {
     int num;
-    public AnswerBox(String s, int answerNumber) {
-	super(s);
+    public AnswerBox(int answerNumber) {
+	super("./src/AnswerBox.png");
 	num = answerNumber;
     }
     

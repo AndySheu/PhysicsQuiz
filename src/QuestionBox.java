@@ -1,7 +1,7 @@
 
 public class QuestionBox extends ImagePanel {
-    public QuestionBox(String s) {
-	super(s);
+    public QuestionBox() {
+	super("./src/QuestionBox.png");
     }
     
     @Override
