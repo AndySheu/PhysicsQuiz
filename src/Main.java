@@ -1,8 +1,10 @@
 
 import java.util.ArrayList;
-import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Main {
     public static void main(String[] args) {
@@ -80,12 +82,23 @@ public class Main {
 	    Var.frame.add(c);
 	}
 	
+	hide();
+	
 	Var.frame.repaint();
 	Var.frame.setVisible(true);
 	
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	runLoop(); // Does it once.
 	updateScreen();
+    }
+    
+    private static void hide() {
+	questionVisible(false);
+	answerSelectionVisible(false);
+	answerExplanationVisible(false);
+	correctVisible(false);
+	incorrectVisible(false);
+	Var.frame.setBackground(Var.backgroundColor);
     }
     
     private static void runLoop() {
@@ -104,6 +117,8 @@ public class Main {
     
     public static void mousePressed(int x, int y) {
 	switch (Var.mode) {
+	    case Var.INTRO:
+		nextMode();
 	    case Var.SELECT_ANSWER:
 		for (ImagePanel c : Var.frameElements) {
 		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and clicked
@@ -128,6 +143,9 @@ public class Main {
     
     public static void nextMode() {
 	switch (Var.mode) {
+	    case Var.INTRO:
+		Var.mode = Var.SELECT_ANSWER;
+		break;
 	    case Var.SELECT_ANSWER:
 		if (checkAnswer()) {
 		    Var.mode = Var.CORRECT_ANSWER;
@@ -153,25 +171,37 @@ public class Main {
     public static void updateScreen() {
 	Var.frame.setBackground(Var.backgroundColor);
 	switch (Var.mode) {
+	    case Var.INTRO:
+		questionVisible(false);
+		answerSelectionVisible(false);
+		answerExplanationVisible(false);
+		correctVisible(false);
+		incorrectVisible(false);
+		Var.frame.setBackground(Var.backgroundColor);
+		break;
 	    case Var.SELECT_ANSWER:
+		questionVisible(true);
 		answerSelectionVisible(true);
 		answerExplanationVisible(false);
 		correctVisible(false);
 		incorrectVisible(false);
 		break;
 	    case Var.CORRECT_ANSWER:
+		questionVisible(true);
 		answerSelectionVisible(false);
 		answerExplanationVisible(false);
 		correctVisible(true);
 		incorrectVisible(false);
 		break;
 	    case Var.INCORRECT_ANSWER:
+		questionVisible(true);
 		answerSelectionVisible(false);
 		answerExplanationVisible(false);
 		correctVisible(false);
 		incorrectVisible(true);
 		break;
 	    case Var.ANSWER_EXPLANATION:
+		questionVisible(true);
 		answerSelectionVisible(false);
 		answerExplanationVisible(true);
 		correctVisible(false);
@@ -183,10 +213,51 @@ public class Main {
 	}
     }
     
+    private static void questionText() {
+	JLabel text;
+	Var.questionBox.removeAll();
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><h1>Question     </h1></html>");
+	Var.questionBox.add(text);
+    }
+    
+    private static void answerText() {
+	Var.answerBox1.removeAll();
+	Var.answerBox2.removeAll();
+	Var.answerBox3.removeAll();
+	Var.answerBox4.removeAll();
+	Var.answerBox5.removeAll();
+	JLabel text;
+	text = new JLabel("<html><br /><br /><br /><br /><h1>A</h1></html>");
+	Var.answerBox1.add(text);
+	text = new JLabel("<html><br /><br /><br /><br /><h1>B</h1></html>");
+	Var.answerBox2.add(text);
+	text = new JLabel("<html><br /><br /><br /><br /><h1>C</h1></html>");
+	Var.answerBox3.add(text);
+	text = new JLabel("<html><br /><br /><br /><br /><h1>D</h1></html>");
+	Var.answerBox4.add(text);
+	text = new JLabel("<html><br /><br /><br /><br /><h1>E</h1></html>");
+	Var.answerBox5.add(text);
+    }
+    
+    private static void questionVisible(boolean flag) {
+	for (ImagePanel c : Var.frameElements) {
+	    if (c instanceof QuestionBox) {
+		c.setVisible(flag);
+		if(flag) {
+		    questionText();
+		}
+	    }
+	}
+    }
+    
+    
     private static void answerSelectionVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof AnswerBox) {
 		c.setVisible(flag);
+		if(flag) {
+		    answerText();
+		}
 	    }
 	}
     }
