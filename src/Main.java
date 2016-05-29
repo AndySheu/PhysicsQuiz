@@ -239,6 +239,20 @@ public class Main {
 	Var.answerBox5.add(text);
     }
     
+    private static void correctAnswerText() {
+	Var.correctAnswerBox.removeAll();
+	JLabel text;
+	text = new JLabel("<html><br /><br /><br /><br /><h1>Yee</h1></html>");
+	Var.correctAnswerBox.add(text);
+    }
+    
+    private static void answerExlpanationText() {
+	Var.answerExplanationBox.removeAll();
+	JLabel text;
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>Yeexplanation</h1></html>");
+	Var.answerExplanationBox.add(text);
+    }
+    
     private static void questionVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof QuestionBox) {
@@ -266,6 +280,12 @@ public class Main {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof CorrectAnswerBox || c instanceof AnswerExplanationBox) {
 		c.setVisible(flag);
+		if(flag && c instanceof CorrectAnswerBox) {
+		    correctAnswerText();
+		}
+		if(flag && c instanceof AnswerExplanationBox) {
+		    answerExlpanationText();
+		}
 	    }
 	}
     }
