@@ -13,6 +13,7 @@ public class Var {
     public static QuestionBox questionBox;
     public static AnswerBox answerBox1, answerBox2, answerBox3, answerBox4, answerBox5;
     public static ImagePanel panel;
+    public static CorrectAnswerBox correctAnswerBox;
     
     public static final int SELECT_ANSWER = 1;
     public static final int ANSWER_CORRECT = 2;

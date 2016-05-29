@@ -53,6 +53,11 @@ public class Main {
 	Var.answerBox5.setLoc(475,650);
 	Var.frameElements.add(Var.answerBox5);
 	
+	Var.correctAnswerBox = new CorrectAnswerBox("./src/CorrectAnswerBox.png");
+	Var.correctAnswerBox.setLoc(475,250);
+	Var.correctAnswerBox.setVisible(false);
+	Var.frameElements.add(Var.correctAnswerBox);
+	
 	// Necessary to get box #5 to work pre-loop
 	Var.panel = new ImagePanel();
 	Var.frameElements.add(Var.panel);
@@ -85,7 +90,7 @@ public class Main {
     
     public static void mousePressed(int x, int y) {
 	for (ImagePanel c : Var.frameElements) {
-	    if(c.checkClicked(x, y)) {
+	    if(c.isVisible() && c.checkClicked(x, y) && c instanceof AnswerBox) {
 		nextMode();
 	    }
 	}
@@ -100,14 +105,17 @@ public class Main {
 		    Var.mode = Var.ANSWER_INCORRECT;
 		}
 		answerVisible(false);
+		correctAnswerVisible(true);
 		break;
 	    case Var.ANSWER_CORRECT:
 		Var.mode = Var.SELECT_ANSWER;
 		answerVisible(true);
+		correctAnswerVisible(false);
 		break;
 	    case Var.ANSWER_INCORRECT:
 		Var.mode = Var.SELECT_ANSWER;
 		answerVisible(true);
+		correctAnswerVisible(false);
 		break;
 	    default:
 		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
@@ -118,6 +126,14 @@ public class Main {
     private static void answerVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof AnswerBox) {
+	    	c.setVisible(flag);
+	    }
+	}
+    }
+    
+    private static void correctAnswerVisible(boolean flag) {
+	for (ImagePanel c : Var.frameElements) {
+	    if (c instanceof CorrectAnswerBox) {
 	    	c.setVisible(flag);
 	    }
 	}
