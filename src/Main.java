@@ -29,11 +29,6 @@ public class Main {
 	Var.listener = new Listener();
 	Var.frame.addMouseListener(Var.listener);
 	
-//	Var.panel = new ImagePanel("./src/GitHub-Mark.png");
-//	Var.panel.addMouseListener(Var.listener);
-//	Var.panel.setLoc(-600, -100);
-//	Var.frameElements.add(Var.panel);
-	
 	Var.questionBox = new QuestionBox("./src/QuestionBox.png");
 	Var.questionBox.setLoc(125,-25);
 	Var.frameElements.add(Var.questionBox);
