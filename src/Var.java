@@ -1,12 +1,14 @@
 
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.1";
     
     public static JFrame frame;
+    public static Color backgroundColor = Color.blue;
     public static ArrayList<ImagePanel> frameElements;
     
     public static Listener listener;
@@ -15,10 +17,13 @@ public class Var {
     public static ImagePanel panel;
     public static CorrectAnswerBox correctAnswerBox;
     public static AnswerExplanationBox answerExplanationBox;
+    public static CorrectBox correctBox;
+    public static IncorrectBox incorrectBox;
     
     public static final int SELECT_ANSWER = 1;
     public static final int CORRECT_ANSWER = 2;
     public static final int INCORRECT_ANSWER = 3;
+    public static final int ANSWER_EXPLANATION = 4;
     public static final int INTRO = 0;
     
     public static int mode = SELECT_ANSWER;

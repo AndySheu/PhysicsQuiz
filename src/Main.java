@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JFrame;
 
@@ -14,6 +15,7 @@ public class Main {
     
     private static void runInit() {
 	Var.frame = new JFrame("Physics Version " + Var.VERSION);
+	Var.frame.setBackground(Var.backgroundColor);
 	Var.frameElements = new ArrayList<ImagePanel>();
 	
 	Var.frame.setSize(Var.MAX_WIDTH, Var.MAX_HEIGHT);
@@ -55,18 +57,24 @@ public class Main {
 	
 	Var.correctAnswerBox = new CorrectAnswerBox();
 	Var.correctAnswerBox.setLoc(225, 250);
-	Var.correctAnswerBox.setVisible(false);
 	Var.frameElements.add(Var.correctAnswerBox);
+
+	Var.correctBox = new CorrectBox();
+	Var.correctBox.setLoc(475, 250);
+	Var.frameElements.add(Var.correctBox);
+
+	Var.incorrectBox = new IncorrectBox();
+	Var.incorrectBox.setLoc(400, 250);
+	Var.frameElements.add(Var.incorrectBox);
 	
 	Var.answerExplanationBox = new AnswerExplanationBox();
 	Var.answerExplanationBox.setLoc(225, 450);
-	Var.answerExplanationBox.setVisible(false);
 	Var.frameElements.add(Var.answerExplanationBox);
 	
-	// Necessary to get box #5 to work pre-loop
+	// Necessary to get the last element entered to work pre-loop
+	// The following code doesn't add anything though
 	Var.panel = new ImagePanel();
 	Var.frameElements.add(Var.panel);
-	// Var.answerBox6.setVisible(true);
 	
 	for (Component c : Var.frameElements) {
 	    Var.frame.add(c);
@@ -77,6 +85,7 @@ public class Main {
 	
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	runLoop(); // Does it once.
+	updateScreen();
     }
     
     private static void runLoop() {
@@ -111,7 +120,7 @@ public class Main {
 		nextMode();
 		break;
 	}
-
+	updateScreen();
     }
     
     public static void nextMode() {
@@ -122,18 +131,12 @@ public class Main {
 		} else {
 		    Var.mode = Var.INCORRECT_ANSWER;
 		}
-		answerVisible(false);
-		answerResponseVisible(true);
 		break;
 	    case Var.CORRECT_ANSWER:
 		Var.mode = Var.SELECT_ANSWER;
-		answerVisible(true);
-		answerResponseVisible(false);
 		break;
 	    case Var.INCORRECT_ANSWER:
 		Var.mode = Var.SELECT_ANSWER;
-		answerVisible(true);
-		answerResponseVisible(false);
 		break;
 	    default:
 		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
@@ -141,7 +144,39 @@ public class Main {
 	}
     }
     
-    private static void answerVisible(boolean flag) {
+    public static void updateScreen() {
+	Var.frame.setBackground(Var.backgroundColor);
+	switch (Var.mode) {
+	    case Var.SELECT_ANSWER:
+		answerSelectionVisible(true);
+		answerExplanationVisible(false);
+		correctVisible(false);
+		incorrectVisible(false);
+		break;
+	    case Var.CORRECT_ANSWER:
+		answerSelectionVisible(false);
+		answerExplanationVisible(false);
+		correctVisible(true);
+		incorrectVisible(false);
+		break;
+	    case Var.INCORRECT_ANSWER:
+		answerSelectionVisible(false);
+		answerExplanationVisible(false);
+		correctVisible(false);
+		incorrectVisible(true);
+		break;
+	    case Var.ANSWER_EXPLANATION:
+		answerSelectionVisible(false);
+		answerExplanationVisible(true);
+		correctVisible(false);
+		incorrectVisible(true);
+	    default:
+		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
+		break;
+	}
+    }
+    
+    private static void answerSelectionVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof AnswerBox) {
 		c.setVisible(flag);
@@ -149,7 +184,7 @@ public class Main {
 	}
     }
     
-    private static void answerResponseVisible(boolean flag) {
+    private static void answerExplanationVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof CorrectAnswerBox || c instanceof AnswerExplanationBox) {
 		c.setVisible(flag);
@@ -157,7 +192,23 @@ public class Main {
 	}
     }
     
+    private static void correctVisible(boolean flag) {
+	for (ImagePanel c : Var.frameElements) {
+	    if (c instanceof CorrectBox) {
+		c.setVisible(flag);
+	    }
+	}
+    }
+    
+    private static void incorrectVisible(boolean flag) {
+	for (ImagePanel c : Var.frameElements) {
+	    if (c instanceof IncorrectBox) {
+		c.setVisible(flag);
+	    }
+	}
+    }
+    
     public static boolean checkAnswer() {
-	return false;
+	return Math.random() > .5;
     }
 }
