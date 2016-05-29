@@ -12,6 +12,14 @@ public class Var {
     public static Listener listener;
     public static QuestionBox questionBox;
     public static AnswerBox answerBox1, answerBox2, answerBox3, answerBox4, answerBox5;
+    public static ImagePanel panel;
+    
+    public static final int SELECT_ANSWER = 1;
+    public static final int ANSWER_CORRECT = 2;
+    public static final int ANSWER_INCORRECT = 3;
+    public static final int INTRO = 0;
+    
+    public static int mode = SELECT_ANSWER;
     
     public static final int MAX_HEIGHT = 896;
     public static final int MAX_WIDTH = 1440;

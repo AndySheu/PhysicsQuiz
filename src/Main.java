@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 public class Main {
     public static void main(String[] args) {
 	runInit();
-	while (true) {
-	    runLoop();
-//	    wait(1000);
-	}
+//	while (true) {
+//	    runLoop();
+////	    wait(1000);
+//	}
     }
     
     private static void runInit() {
@@ -53,6 +53,11 @@ public class Main {
 	Var.answerBox5.setLoc(475,650);
 	Var.frameElements.add(Var.answerBox5);
 	
+	// Necessary to get box #5 to work pre-loop
+	Var.panel = new ImagePanel();
+	Var.frameElements.add(Var.panel);
+//	Var.answerBox6.setVisible(true);
+	
 	for (Component c : Var.frameElements) {
 	    Var.frame.add(c);
 	}
@@ -61,6 +66,7 @@ public class Main {
 	Var.frame.setVisible(true);
 	
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	runLoop(); // Does it once.
     }
     
     private static void runLoop() {
@@ -71,10 +77,6 @@ public class Main {
     }
     
     private static void wait(int millis) {
-	for (Component c : Var.frameElements) {
-	    Var.frame.add(c);
-	}
-	
 	long start = System.currentTimeMillis();
 	while (System.currentTimeMillis() - start < millis) {
 	
@@ -83,7 +85,45 @@ public class Main {
     
     public static void mousePressed(int x, int y) {
 	for (ImagePanel c : Var.frameElements) {
-	    c.checkClicked(x, y);
+	    if(c.checkClicked(x, y)) {
+		nextMode();
+	    }
 	}
+    }
+    
+    public static void nextMode() {
+	switch(Var.mode) {
+	    case Var.SELECT_ANSWER:
+		if (checkAnswer()) {
+		    Var.mode = Var.ANSWER_CORRECT;
+		} else {
+		    Var.mode = Var.ANSWER_INCORRECT;
+		}
+		answerVisible(false);
+		break;
+	    case Var.ANSWER_CORRECT:
+		Var.mode = Var.SELECT_ANSWER;
+		answerVisible(true);
+		break;
+	    case Var.ANSWER_INCORRECT:
+		Var.mode = Var.SELECT_ANSWER;
+		answerVisible(true);
+		break;
+	    default:
+		System.out.println("Oh, no! Defaulting on switch statement! Var.mode");
+		break;
+	}
+    }
+    
+    private static void answerVisible(boolean flag) {
+	for (ImagePanel c : Var.frameElements) {
+	    if (c instanceof AnswerBox) {
+	    	c.setVisible(flag);
+	    }
+	}
+    }
+    
+    public static boolean checkAnswer() {
+	return false;
     }
 }

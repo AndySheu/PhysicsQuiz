@@ -64,10 +64,12 @@ public class ImagePanel extends JPanel {
 	return img;
     }
     
-    public void checkClicked(int cx, int cy) {
+    public boolean checkClicked(int cx, int cy) {
 	if (cx > x && cx < (x + width) && cy > y && cy < (y + height)) {
 	    clicked();
+	    return true;
 	}
+	return false;
     }
     
     public void clicked() {
