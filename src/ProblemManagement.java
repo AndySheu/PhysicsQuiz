@@ -18,6 +18,6 @@ public class ProblemManagement {
     }
     
     public static Problem getProblem() {
-	return problems.get((int) (Math.random() * problems.size()));
+	return problems.get((int) (Math.random() * problems.size())).randomize();
     }
 }

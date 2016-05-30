@@ -4,6 +4,7 @@ import java.awt.Component;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,10 +23,10 @@ public class Main {
 	
 	System.out.println("Loading...");
 	
-	Var.frame.setSize(140,60);
+	Var.frame.setSize(140, 60);
 	JLabel text = new JLabel("<html><h1>Loading...</h1></html>");
 	Var.frame.add(text);
-
+	
 	Var.frame.repaint();
 	Var.frame.setVisible(true);
 	
@@ -79,6 +80,10 @@ public class Main {
 	Var.answerExplanationBox = new AnswerExplanationBox();
 	Var.answerExplanationBox.setLoc(225, 450);
 	Var.frameElements.add(Var.answerExplanationBox);
+	
+	Var.ironClaw = new ImagePanel("./src/IronClaw.png");
+	Var.ironClaw.setLoc(25, 670);
+	Var.frameElements.add(Var.ironClaw);
 	
 	// Necessary to get the last element entered to work pre-loop
 	// The following code doesn't add anything though
@@ -134,7 +139,8 @@ public class Main {
 	    // nextMode();
 	    case Var.SELECT_ANSWER:
 		for (ImagePanel c : Var.frameElements) {
-		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and clicked
+		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and
+								 // clicked
 			if (c instanceof AnswerBox) {
 			    nextMode();
 			} else {
@@ -211,6 +217,19 @@ public class Main {
 		answerExplanationVisible(false);
 		correctVisible(true);
 		incorrectVisible(false);
+		if (Var.streak == 3) {
+		    JOptionPane.showMessageDialog(Var.frame, "3 in a row!");
+		} else if (Var.streak == 5) {
+		    JOptionPane.showMessageDialog(Var.frame, "5 straight!");
+		} else if (Var.streak == 10) {
+		    
+		    JOptionPane.showMessageDialog(Var.frame, "10 in a row!");
+		} else if (Var.streak == 75) {
+		    JOptionPane.showMessageDialog(Var.frame,
+			    "If this was the test, you would have aced it! 75 correct answers in a row!");
+		} else {
+		    JOptionPane.showMessageDialog(Var.frame, "Correct!");
+		}
 		break;
 	    case Var.INCORRECT_ANSWER:
 		questionVisible(true);
@@ -218,6 +237,18 @@ public class Main {
 		answerExplanationVisible(false);
 		correctVisible(false);
 		incorrectVisible(true);
+		JOptionPane.showMessageDialog(Var.frame, "Incorrect!");
+		if (Var.streak == -4) {
+		    JOptionPane.showMessageDialog(Var.frame, "Uh-oh! You'd be better off guessing...");
+		} else if (Var.streak == -7) {
+		    JOptionPane.showMessageDialog(Var.frame,
+			    "That's 5 wrong. Maybe think a little longer or review some more?");
+		} else if (Var.streak == -75) {
+		    JOptionPane.showMessageDialog(Var.frame,
+			    "You know what you're doing! You have just missed an entire test's worth of questions!");
+		} else {
+		    JOptionPane.showMessageDialog(Var.frame, "Incorrect!");
+		}
 		break;
 	    case Var.ANSWER_EXPLANATION:
 		questionVisible(true);
@@ -231,6 +262,7 @@ public class Main {
 		break;
 	}
 	Var.frame.repaint();
+	
     }
     
     private static void questionText() {
@@ -295,6 +327,8 @@ public class Main {
 		}
 	    }
 	}
+	Var.ironClaw.setVisible(flag);
+	Var.correctAnswerBox.add(new JLabel("<html><h1>Stats</h1></html>"));
     }
     
     private static void answerExplanationVisible(boolean flag) {
@@ -328,6 +362,22 @@ public class Main {
     }
     
     public static boolean checkAnswer() {
-	return Var.selectedAnswer.equals(Var.problem.getCorrectAnswer());
+	boolean correct = Var.selectedAnswer.equals(Var.problem.getCorrectAnswer());
+	if (correct) {
+	    Var.correct++;
+	    if (Var.streak < 0) {
+		Var.streak = 1;
+	    } else {
+		Var.streak++;
+	    }
+	} else {
+	    Var.incorrect++;
+	    if (Var.streak > 0) {
+		Var.streak = -1;
+	    } else {
+		Var.streak--;
+	    }
+	}
+	return correct;
     }
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Problem {
     private String question, a, b, c, d, e, correctAnswer, explanation;
@@ -45,9 +46,29 @@ public class Problem {
 	this.explanation = explanation;
     }
     
+    public Problem randomize() {
+	ArrayList<String> temp = new ArrayList<String>(5);
+	temp.add(a);
+	temp.add(b);
+	temp.add(c);
+	temp.add(d);
+	temp.add(e);
+	
+	a = temp.get((int)(Math.random() * 5));
+	temp.remove(a);
+	b = temp.get((int)(Math.random() * 4));
+	temp.remove(b);
+	c = temp.get((int)(Math.random() * 3));
+	temp.remove(c);
+	d = temp.get((int)(Math.random() * 2));
+	temp.remove(d);
+	e = temp.get(0);
+	return new Problem(question, a, b, c, d, e, correctAnswer, explanation);
+    }
+    
     public String getQuestion() {
 	return question;
-    }
+    }    
     
     public String getA() {
 	return a;
