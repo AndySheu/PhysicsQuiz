@@ -87,7 +87,7 @@ public class Main {
 	Var.ironClaw = new IronClaw();
 	Var.ironClaw.setLoc(25, 640);
 	JLabel txt = new JLabel("<html><br /><br /><br /><h1>Stats</h1></html>");
-	txt.setForeground(Color.green);
+	txt.setForeground(Color.white);
 	Var.ironClaw.add(txt);
 	Var.frameElements.add(Var.ironClaw);
 	

@@ -4,10 +4,10 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "3.3";
+    public static final String VERSION = "3.4";
     
     public static JFrame frame;
-    public static Color backgroundColor = Color.white;
+    public static Color backgroundColor = Color.orange;
     public static ArrayList<ImagePanel> frameElements;
     
     public static Problem problem;
