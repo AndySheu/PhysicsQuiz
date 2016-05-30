@@ -98,7 +98,7 @@ public class Main {
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	runLoop(); // Does it once.
 	nextMode();
-	System.out.println("Ready in " + (System.currentTimeMillis() - time) + " seconds...");
+	System.out.println("Ready in " + (System.currentTimeMillis() - time) + " milliseconds...");
 	
 	Var.frame.remove(text);
 	
