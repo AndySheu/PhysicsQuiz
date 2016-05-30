@@ -22,6 +22,8 @@ public class Main {
 	Var.frame.setBackground(Var.backgroundColor);
 	Var.frameElements = new ArrayList<ImagePanel>();
 	
+	Menu.init();
+	
 	System.out.println("Loading...");
 	
 	Var.frame.setSize(140, 60);
@@ -47,27 +49,27 @@ public class Main {
 	Var.frameElements.add(Var.questionBox);
 	
 	Var.answerBox1 = new AnswerBox(1);
-	Var.answerBox1.setLoc(200, 250);
+	Var.answerBox1.setLoc(200, 240);
 	Var.frameElements.add(Var.answerBox1);
 	
 	Var.answerBox2 = new AnswerBox(2);
-	Var.answerBox2.setLoc(750, 250);
+	Var.answerBox2.setLoc(750, 240);
 	Var.frameElements.add(Var.answerBox2);
 	
 	Var.answerBox3 = new AnswerBox(3);
-	Var.answerBox3.setLoc(200, 450);
+	Var.answerBox3.setLoc(200, 435);
 	Var.frameElements.add(Var.answerBox3);
 	
 	Var.answerBox4 = new AnswerBox(4);
-	Var.answerBox4.setLoc(750, 450);
+	Var.answerBox4.setLoc(750, 435);
 	Var.frameElements.add(Var.answerBox4);
 	
 	Var.answerBox5 = new AnswerBox(5);
-	Var.answerBox5.setLoc(475, 650);
+	Var.answerBox5.setLoc(475, 630);
 	Var.frameElements.add(Var.answerBox5);
 	
 	Var.correctAnswerBox = new CorrectAnswerBox();
-	Var.correctAnswerBox.setLoc(225, 250);
+	Var.correctAnswerBox.setLoc(225, 240);
 	Var.frameElements.add(Var.correctAnswerBox);
 	
 	Var.correctBox = new CorrectBox();
@@ -79,11 +81,11 @@ public class Main {
 	Var.frameElements.add(Var.incorrectBox);
 	
 	Var.answerExplanationBox = new AnswerExplanationBox();
-	Var.answerExplanationBox.setLoc(225, 450);
+	Var.answerExplanationBox.setLoc(225, 440);
 	Var.frameElements.add(Var.answerExplanationBox);
 	
 	Var.ironClaw = new IronClaw();
-	Var.ironClaw.setLoc(25, 670);
+	Var.ironClaw.setLoc(25, 640);
 	JLabel txt = new JLabel("<html><br /><br /><br /><h1>Stats</h1></html>");
 	txt.setForeground(Color.green);
 	Var.ironClaw.add(txt);
