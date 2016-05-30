@@ -1,8 +1,8 @@
 
 public class Problem {
-    private String question, a, b, c, d, e, correctAnswer;
+    private String question, a, b, c, d, e, correctAnswer, explanation;
     
-    public Problem(String q, String a, String b, String c, String d, String e, String correctAnswer) {
+    public Problem(String q, String a, String b, String c, String d, String e, String correctAnswer, String explanation) {
 	this.question = q;
 	this.a = a;
 	this.b = b;
@@ -10,6 +10,7 @@ public class Problem {
 	this.d = d;
 	this.e = e;
 	this.correctAnswer = correctAnswer;
+	this.explanation = explanation;
     }
     
     public void setQuestion(String q) {
@@ -40,6 +41,10 @@ public class Problem {
 	this.correctAnswer = ca;
     }
     
+    public void setExplanation(String explanation) {
+	this.explanation = explanation;
+    }
+    
     public String getQuestion() {
 	return question;
     }
@@ -66,5 +71,9 @@ public class Problem {
     
     public String getCorrectAnswer() {
 	return correctAnswer;
+    }
+    
+    public String getExplanation() {
+	return explanation;
     }
 }

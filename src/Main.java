@@ -83,6 +83,7 @@ public class Main {
 	}
 	
 	hide();
+	ProblemManagement.init();
 	
 	Var.frame.repaint();
 	Var.frame.setVisible(true);
@@ -90,6 +91,7 @@ public class Main {
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	runLoop(); // Does it once.
 	updateScreen();
+	nextMode();
     }
     
     private static void hide() {
@@ -118,7 +120,7 @@ public class Main {
     public static void mousePressed(int x, int y) {
 	switch (Var.mode) {
 	    case Var.INTRO:
-		nextMode();
+//		nextMode();
 	    case Var.SELECT_ANSWER:
 		for (ImagePanel c : Var.frameElements) {
 		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and clicked
@@ -145,6 +147,7 @@ public class Main {
 	switch (Var.mode) {
 	    case Var.INTRO:
 		Var.mode = Var.SELECT_ANSWER;
+		Var.problem = ProblemManagement.getProblem();
 		break;
 	    case Var.SELECT_ANSWER:
 		if (checkAnswer()) {
@@ -161,6 +164,7 @@ public class Main {
 		break;
 	    case Var.ANSWER_EXPLANATION:
 		Var.mode = Var.SELECT_ANSWER;
+		Var.problem = ProblemManagement.getProblem();
 		break;
 	    default:
 		System.out.println("Oh, no! Defaulting on switch statement! Var.mode = " + Var.mode);
@@ -216,7 +220,7 @@ public class Main {
     private static void questionText() {
 	JLabel text;
 	Var.questionBox.removeAll();
-	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><h1>Question     </h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><h1>" + Var.problem.getQuestion() + "</h1></html>");
 	Var.questionBox.add(text);
     }
     
@@ -227,29 +231,29 @@ public class Main {
 	Var.answerBox4.removeAll();
 	Var.answerBox5.removeAll();
 	JLabel text;
-	text = new JLabel("<html><br /><br /><br /><br /><h1>A</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getA() + "</h1></html>");
 	Var.answerBox1.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>B</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getB() + "</h1></html>");
 	Var.answerBox2.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>C</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getC() + "</h1></html>");
 	Var.answerBox3.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>D</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getD() + "</h1></html>");
 	Var.answerBox4.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>E</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getE() + "</h1></html>");
 	Var.answerBox5.add(text);
     }
     
     private static void correctAnswerText() {
 	Var.correctAnswerBox.removeAll();
 	JLabel text;
-	text = new JLabel("<html><br /><br /><br /><br /><h1>Yee</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getCorrectAnswer() + "</h1></html>");
 	Var.correctAnswerBox.add(text);
     }
     
     private static void answerExlpanationText() {
 	Var.answerExplanationBox.removeAll();
 	JLabel text;
-	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>Yeexplanation</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>" + Var.problem.getExplanation() + "</h1></html>");
 	Var.answerExplanationBox.add(text);
     }
     
@@ -307,6 +311,6 @@ public class Main {
     }
     
     public static boolean checkAnswer() {
-	return Math.random() > .5;
+	return Var.selectedAnswer.equals(Var.problem.getCorrectAnswer());
     }
 }

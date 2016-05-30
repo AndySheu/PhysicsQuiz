@@ -11,6 +11,8 @@ public class Var {
     public static Color backgroundColor = Color.yellow;
     public static ArrayList<ImagePanel> frameElements;
     
+    public static Problem problem;
+    public static String selectedAnswer;
     public static Listener listener;
     public static QuestionBox questionBox;
     public static AnswerBox answerBox1, answerBox2, answerBox3, answerBox4, answerBox5;
