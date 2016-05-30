@@ -26,8 +26,9 @@ public class Main {
 	
 	System.out.println("Loading...");
 	
-	Var.frame.setSize(140, 60);
+	Var.frame.setSize(140, 70);
 	JLabel text = new JLabel("<html><h1>Loading...</h1></html>");
+	text.setForeground(Color.red);
 	Var.frame.add(text);
 	
 	Var.frame.repaint();
