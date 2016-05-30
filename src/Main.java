@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 import java.awt.Component;
-import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,11 +15,19 @@ public class Main {
     }
     
     private static void runInit() {
+	long time = System.currentTimeMillis();
 	Var.frame = new JFrame("Physics Version " + Var.VERSION);
 	Var.frame.setBackground(Var.backgroundColor);
 	Var.frameElements = new ArrayList<ImagePanel>();
 	
-	Var.frame.setSize(Var.MAX_WIDTH, Var.MAX_HEIGHT);
+	System.out.println("Loading...");
+	
+	Var.frame.setSize(140,60);
+	JLabel text = new JLabel("<html><h1>Loading...</h1></html>");
+	Var.frame.add(text);
+
+	Var.frame.repaint();
+	Var.frame.setVisible(true);
 	
 	if (Var.TESTING) {
 	    Var.frame.setResizable(true);
@@ -60,11 +67,11 @@ public class Main {
 	Var.correctAnswerBox = new CorrectAnswerBox();
 	Var.correctAnswerBox.setLoc(225, 250);
 	Var.frameElements.add(Var.correctAnswerBox);
-
+	
 	Var.correctBox = new CorrectBox();
 	Var.correctBox.setLoc(475, 250);
 	Var.frameElements.add(Var.correctBox);
-
+	
 	Var.incorrectBox = new IncorrectBox();
 	Var.incorrectBox.setLoc(400, 250);
 	Var.frameElements.add(Var.incorrectBox);
@@ -90,8 +97,12 @@ public class Main {
 	
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	runLoop(); // Does it once.
-	updateScreen();
 	nextMode();
+	System.out.println("Ready in " + (System.currentTimeMillis() - time) + " seconds...");
+	
+	Var.frame.remove(text);
+	
+	Var.frame.setSize(Var.MAX_WIDTH, Var.MAX_HEIGHT);
     }
     
     private static void hide() {
@@ -119,14 +130,16 @@ public class Main {
     
     public static void mousePressed(int x, int y) {
 	switch (Var.mode) {
-	    case Var.INTRO:
-//		nextMode();
+	    // case Var.INTRO:
+	    // nextMode();
 	    case Var.SELECT_ANSWER:
 		for (ImagePanel c : Var.frameElements) {
 		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and clicked
 			if (c instanceof AnswerBox) {
 			    nextMode();
+			} else {
 			}
+		    } else {
 		    }
 		}
 		break;
@@ -139,8 +152,9 @@ public class Main {
 	    case Var.ANSWER_EXPLANATION:
 		nextMode();
 		break;
+	    default:
+		return;
 	}
-	updateScreen();
     }
     
     public static void nextMode() {
@@ -170,6 +184,7 @@ public class Main {
 		System.out.println("Oh, no! Defaulting on switch statement! Var.mode = " + Var.mode);
 		break;
 	}
+	updateScreen();
     }
     
     public static void updateScreen() {
@@ -215,12 +230,14 @@ public class Main {
 		System.out.println("Oh, no! Defaulting on switch statement! Var.mode = " + Var.mode);
 		break;
 	}
+	Var.frame.repaint();
     }
     
     private static void questionText() {
 	JLabel text;
 	Var.questionBox.removeAll();
-	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><h1>" + Var.problem.getQuestion() + "</h1></html>");
+	text = new JLabel(
+		"<html><br /><br /><br /><br /><br /><br /><h1>" + Var.problem.getQuestion() + "</h1></html>");
 	Var.questionBox.add(text);
     }
     
@@ -253,7 +270,8 @@ public class Main {
     private static void answerExlpanationText() {
 	Var.answerExplanationBox.removeAll();
 	JLabel text;
-	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>" + Var.problem.getExplanation() + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>"
+		+ Var.problem.getExplanation() + "</h1></html>");
 	Var.answerExplanationBox.add(text);
     }
     
@@ -261,19 +279,18 @@ public class Main {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof QuestionBox) {
 		c.setVisible(flag);
-		if(flag) {
+		if (flag) {
 		    questionText();
 		}
 	    }
 	}
     }
     
-    
     private static void answerSelectionVisible(boolean flag) {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof AnswerBox) {
 		c.setVisible(flag);
-		if(flag) {
+		if (flag) {
 		    answerText();
 		}
 	    }
@@ -284,10 +301,10 @@ public class Main {
 	for (ImagePanel c : Var.frameElements) {
 	    if (c instanceof CorrectAnswerBox || c instanceof AnswerExplanationBox) {
 		c.setVisible(flag);
-		if(flag && c instanceof CorrectAnswerBox) {
+		if (flag && c instanceof CorrectAnswerBox) {
 		    correctAnswerText();
 		}
-		if(flag && c instanceof AnswerExplanationBox) {
+		if (flag && c instanceof AnswerExplanationBox) {
 		    answerExlpanationText();
 		}
 	    }

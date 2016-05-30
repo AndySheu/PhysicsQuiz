@@ -6,6 +6,6 @@ public class QuestionBox extends ImagePanel {
     
     @Override
     public void clicked() {
-	System.out.println("Question clicked.");
+//	System.out.println("Question clicked.");
     }
 }

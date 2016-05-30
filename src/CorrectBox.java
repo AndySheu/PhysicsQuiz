@@ -6,6 +6,6 @@ public class CorrectBox extends ImagePanel {
     
     @Override
     public void clicked() {
-	System.out.println("Correct Box clicked.");
+//	System.out.println("Correct Box clicked.");
     }
 }
