@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "3.1";
+    public static final String VERSION = "3.2";
     
     public static JFrame frame;
     public static Color backgroundColor = Color.white;
@@ -18,11 +18,12 @@ public class Var {
     public static Listener listener;
     public static QuestionBox questionBox;
     public static AnswerBox answerBox1, answerBox2, answerBox3, answerBox4, answerBox5;
-    public static ImagePanel panel, ironClaw;
+    public static ImagePanel panel;
     public static CorrectAnswerBox correctAnswerBox;
     public static AnswerExplanationBox answerExplanationBox;
     public static CorrectBox correctBox;
     public static IncorrectBox incorrectBox;
+    public static IronClaw ironClaw;
     
     public static final int SELECT_ANSWER = 1;
     public static final int CORRECT_ANSWER = 2;
