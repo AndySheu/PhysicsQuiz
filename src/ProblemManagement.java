@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class ProblemManagement {
     private static ArrayList<Problem> problems = new ArrayList<Problem>();
     private static Problem problem;
-    private static int question = 0, lineNumber;
+    private static int question = 103, lineNumber;
     
   //@formatter:off
     // Sets everything. Call this or everything will throw errors
@@ -97,7 +97,7 @@ public class ProblemManagement {
 	problems.add(problem);
 	problem = new Problem("If you see a wave changing mediums, then the wave has:", "I) Constant wave speed", "II) Constant frequency", "III) Direct relationship between. velocity and wavelength", "I and III", "II and III", "II and III", "");
 	problems.add(problem);
-	problem = new Problem("A wave travels through a medium with velocity v, frequency f, and wavelength λ. If the wave travels then enters another medium that increases the velocity to 2v,* what will be the corresponding frequency and wavelength?", "f, 2λ", "0.5f, λ", "f, λ", "0.5f, 4λ", "2f, λ", "f, 2λ", "");
+	problem = new Problem("A wave travels through a medium with* velocity v, frequency f, and wavelength λ. If the wave travels then enters another medium that increases the velocity* to 2v, what will be the corresponding frequency and wavelength?", "f, 2λ", "0.5f, λ", "f, λ", "0.5f, 4λ", "2f, λ", "f, 2λ", "");
 	problems.add(problem);
 	problem = new Problem("What is the equation for the speed of light moving in a vacuum?", "c = Aλ", "c = λ/s", "c = (fλ)/s", "c = (Afλ)/s", "c = fλ", "c = fλ", "");
 	problems.add(problem);
@@ -148,7 +148,7 @@ public class ProblemManagement {
 	problem = new Problem("Which of the following is NOT true for a concave lens?", "Concave lens are divergent", "The image is virtual", "The image is upright", "The image is larger than the object", "The image forms on the near side. of the lens", "The image is larger than the object", "");
 	problems.add(problem);
 	problem = new Problem("Which of the following is true when light enters a denser medium?", "v increases, λ decreases,. and n increases", "v increases, λ decreases,. and n decreases", "v decreases, λ increases,. and n increases", "v decreases, λ decreases,. and n increases", "v decreases, λ decreases,. and n decreases", "v decreases, λ decreases,. and n increases", "");
-	problems.add(problem); // ** ** //
+	problems.add(problem);
 	problem = new Problem("What does the variable m refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "A specific maximum or minimum", "");
 	problems.add(problem);
 	problem = new Problem("What does the variable L refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "Distance from slits to screen", "");
@@ -183,11 +183,71 @@ public class ProblemManagement {
 	problems.add(problem);
 	problem = new Problem("Which object placement creates an image behind the* object if the mirror is in front?", "d = 2f", "d = 3f", "f < d < 2f", "d = f", "d < f", "d < f", "");
 	problems.add(problem);
+	problem = new Problem("How many laws of thermodynamics are there?", "1", "2", "3", "4", "5", "4", "");
+	problems.add(problem);
+	problem = new Problem("What does the first law of thermodynamics state?", "Conservation of energy", "Entropy increases naturally", "The speed of light is constant. in all inertial frames", "For every action there is an equal. and opposite reaction", "None of the above", "Conservation of energy", "");
+	problems.add(problem);
+	problem = new Problem("What does the second laws thermodynamics state?", "Conservation of energy", "Entropy increases naturally", "The speed of light is constant. in all inertial frames", "For every action there is an equal. and opposite reaction", "None of the above", "Entropy increases naturally", "");
+	problems.add(problem);
+	problem = new Problem("What is entropy?", "The surrounding environment", "Disorder", "The Doppler Effect", "Highest Tree Layer in a rainforest", "None of the above", "Disorder", "");
+	problems.add(problem);
+	problem = new Problem("In thermodynamics, what does the variable U represent?", "Electric potential energy", "Gravitational potential energy", "Heat", "The internal energy of the system", "The external energy of the system", "The internal energy of the system", "");
+	problems.add(problem);
+	problem = new Problem("In thermodynamics, what does the variable e represent?", "Energy", "Efficiency", "Electron", "Einstein", "None of the above", "Efficiency", "");
+	problems.add(problem);
+	problem = new Problem("What is the equation for the change in internal energy of a gas?", "ΔU = (1/2)nRΔT", "ΔU = nRΔT", "ΔU = (3/2)nRΔT", "ΔU = (3/2)ΔT", "ΔU = ΔT", "ΔU = (3/2)nRΔT", "");
+	problems.add(problem);
+	problem = new Problem("During a thermodynamic process, 200 joules of heat are added to a gas* while 300 joules of work are done by the gas. Determine the change in internal energy.", "500 J", "100 J", "-100 J", "-500 J", "0 J", "-100 J", "ΔU = Q + W = 200 J - 300 J = -100 J");
+	problems.add(problem);
+	problem = new Problem("During an isothermal process, 1,000 joules of heat* are removed from a trapped gas. Determine the change in internal energy of the gas.", "ΔU = -1,000 J", "ΔU = 0 J", "ΔU = 1,000 J", "ΔU = -500 J", "ΔU = 500 J", "ΔU = 0 J", "In an isothermal process, the temperature remains constant so the internal energy does not change.");
+	problems.add(problem);
+	problem = new Problem("During an isothermal process, 1,000 joules of heat* are added from a trapped gas. Determine the work done on or by the gas.", "W = 1,000 J", "W = 0 J", "W = -1,000 J", "W = -500 J", "W = 500 J", "W = -1,000 J", "ΔU = Q + W -> 0 = (1000 J) + W -> W = -1,000 J");
+	problems.add(problem);
+	problem = new Problem("In thermodynamics, what is the equation for efficiency?", "e = (T_C - T_H)/T_H", "e = (T_H - T_C)/T_C", "e = (T_C - T_H)/T_C", "e = (T_H - T_C)/T_H", "e = (TH - TC)", "e = (T_H - T_C)/T_H", "");
+	problems.add(problem);
+	problem = new Problem("In an isothermal process:", "The temperature is zero", "The volume change is zero", "The work is zero", "The heat added is zero", "The internal energy change is zero", "The internal energy change is zero", "");
+	problems.add(problem);
+	problem = new Problem("In an adiabatic process, there is no:", "Change in pressure", "Change in volume", "Change in temperature", "Change in internal energy", "Heat added or removed", "Heat added or removed", "");
+	problems.add(problem);
+	problem = new Problem("During a thermodynamic process, 500 joules of heat are removed from a gas* while 300 joules of work are done on the gas. Determine the change in internal energy.", "-800 J", "-200 J", "0 J", "200 J", "800 J", "-200 J", "-500 + 300 = -200 J");
+	problems.add(problem);
+	problem = new Problem("A heat engine operates between 25ºC and 100ºC. The theoretical efficiency is most nearly: ", "10%", "20%", "50%", "70%", "80%", "20%", "e = (373 K - 298 K)/(373 K) = 0.2 = 20%");
+	problems.add(problem);
+	problem = new Problem("During an isometric process, 450 joules of heat are* removed from a trapped gas. Which statement is true?", "The volume of the gas. is increasing", "The volume of the gas. is decreasing", "The temperature of the gas. is increasing", "The temperature of the gas. is decreasing", "Word = 450 J", "The temperature of the gas. is decreasing", "In an isometric process, volume is constant and work is zero. Therefore, internal energy decreases and temperature decreases.");
+	problems.add(problem); // ** ** //
+	problem = new Problem("What does the variable α represent?", "Thermal conductivity ", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Coefficient of linear expansion", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable R represent?", "Thermal conductivity ", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Universal gas constant", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable Q represent?", "Thermal conductivity ", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Heat", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable k represent?", "Thermal conductivity", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Thermal conductivity", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable c represent?", "Thermal conductivity ", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Specific heat capacity", "");
+	problems.add(problem);
+	problem = new Problem("The idea gas law relates all of the following but:", "Pressure", "Volume", "Temperature", "Time", "All of the above", "Time", "");
+	problems.add(problem);
+	problem = new Problem("What is the equation for the ideal gas law?", "PV = nRT", "P/V = n/(RT)", "PV = nT", "PV = RT", "P = nRTV", "PV = nRT", "");
+	problems.add(problem);
+	problem = new Problem("What is Boyle’s Law?", "All objects have gaseous forms", "All objects expand when heated", "PV=nRT", "(P_1)(V_1)=(P_2)(V_2)", "PV = T/V", "(P_1)(V_1)=(P_2)(V_2)", "");
+	problems.add(problem);
+	problem = new Problem("What is Charles’ Law?", "Temperature remains constant. during phase change", "All objects expand when heated", "PV=nRT", "(V_1)/(T_1)=(V_2)/(T_2)", "PV = T/V", "(V_1)/(T_1)=(V_2)/(T_2)", "");
+	problems.add(problem);
+	problem = new Problem("Under isothermal conditions, what would be the volume of a 1 L* sample of helium gas after its pressure changed from 12 atm to 4 atm?", "0 L", "3 L", "8 L", "16 L", "48 L", "3 L", "");
+	problems.add(problem);
+	problem = new Problem("If the temperature of 2 liters of gas is isobarically* changed from 10º C to 293º C, what would be the final volume?", "1.2 L", "2 L", "10 L", "293 L", "None of the above", "None of the above", "Use Charles’ Law");
+	problems.add(problem);
+	problem = new Problem("Which of the following is NOT true of an ideal gas?", "No intermolecular forces.", "Random motion.", "No volume.", "Elastic collisions.", "All are true.", "All are true.", "");
+	problems.add(problem);
+	problem = new Problem("A sample of nitrogen occupies 50 liters at standard temperature. Assuming constant pressure, what volume will* nitrogen occupy if the temperature is doubled?", "25 liters", "50 liters", "100 liters", "200 liters", "2500 liters", "100 liters", "");
+	problems.add(problem);
+	problem = new Problem("What is the final pressure of a gas that expands from 1 L* at 10º C to 10 L at 100º C if the original pressure was 3 atm?", "0.3 atm", "0.4 atm", "3 atm", "4 atm", "30 atm", "0.4 atm", "");
+	problems.add(problem);
     }
   //@formatter:on
     
     public static Problem getProblem() {
-	if (question < 87) { // Sets first 87 questions always (in order).
+	if (question < 117) { // Sets first x questions always (in order).
 	    question++;
 	    int questionNumber = question - 1;
 	    lineNumber = 12 + (2 * questionNumber);

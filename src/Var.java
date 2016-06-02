@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "4.2";
+    public static final String VERSION = "4.3";
     
     public static JFrame frame;
     public static Color backgroundColor = Color.orange;

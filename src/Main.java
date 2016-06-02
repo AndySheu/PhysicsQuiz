@@ -265,8 +265,10 @@ public class Main {
 	while (!question.equals(question.replace("*", "<br />"))) {
 	    question = question.replace("*", "<br />");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><br /><h1>" + question + "<br />("
-		+ ProblemManagement.getLineNumber() + ")</h1></html>");
+	if(Var.TESTING) {
+	   question += "<br />(" + ProblemManagement.getLineNumber() + ")";
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + question + "</h1></html>");
 	text.setForeground(Color.yellow);
 	Var.questionBox.add(text);
     }
@@ -282,31 +284,31 @@ public class Main {
 	while (!a.equals(a.replace(". ", "<br /> "))) {
 	    a = a.replace(". ", "<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + a + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><h1>" + a + "</h1></html>");
 	Var.answerBox1.add(text);
 	String b = Var.problem.getB();
 	while (!b.equals(b.replace(". ", "<br /> "))) {
 	    b = b.replace(". ", "<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + b + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><h1>" + b + "</h1></html>");
 	Var.answerBox2.add(text);
 	String c = Var.problem.getC();
 	while (!c.equals(c.replace(". ", "<br /> "))) {
 	    c = c.replace(". ", "<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + c + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><h1>" + c + "</h1></html>");
 	Var.answerBox3.add(text);
 	String d = Var.problem.getD();
 	while (!d.equals(d.replace(". ", "<br /> "))) {
 	    d = d.replace(". ", "<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + d + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><h1>" + d + "</h1></html>");
 	Var.answerBox4.add(text);
 	String e = Var.problem.getE();
 	while (!e.equals(e.replace(". ", "<br /> "))) {
 	    e = e.replace(". ", "<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + e + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><h1>" + e + "</h1></html>");
 	Var.answerBox5.add(text);
     }
     
@@ -321,7 +323,7 @@ public class Main {
 	Var.correctAnswerBox.add(text);
     }
     
-    private static void answerExlpanationText() {
+    private static void answerExplanationText() {
 	Var.answerExplanationBox.removeAll();
 	JLabel text;
 	String explanation = Var.problem.getExplanation();
@@ -363,7 +365,7 @@ public class Main {
 		    correctAnswerText();
 		}
 		if (flag && c instanceof AnswerExplanationBox) {
-		    answerExlpanationText();
+		    answerExplanationText();
 		}
 	    }
 	}

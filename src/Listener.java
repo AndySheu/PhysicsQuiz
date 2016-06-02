@@ -5,7 +5,7 @@ public class Listener implements MouseListener {
     
     @Override
     public void mousePressed(MouseEvent e) {
-	System.out.println("Mouse Pressed (" + e.getX() + "," + e.getY() + ")");
+//	System.out.println("Mouse Pressed (" + e.getX() + "," + e.getY() + ")");
 	Main.mousePressed(e.getX(), e.getY());
     }
     
