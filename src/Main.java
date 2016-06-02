@@ -262,7 +262,10 @@ public class Main {
 	while (!question.equals(question.replace(". ", ".<br /> "))) {
 	    question = question.replace(". ", ".<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><h1>" + question + "</h1></html>");
+	while (!question.equals(question.replace("*", "<br />"))) {
+	    question = question.replace("*", "<br />");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><br /><h1>" + question + "<br />(" + ProblemManagement.getLineNumber() +")</h1></html>");
 	text.setForeground(Color.yellow);
 	Var.questionBox.add(text);
     }
@@ -274,30 +277,58 @@ public class Main {
 	Var.answerBox4.removeAll();
 	Var.answerBox5.removeAll();
 	JLabel text;
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getA() + "</h1></html>");
+	String a = Var.problem.getA();
+	while (!a.equals(a.replace(". ", "<br /> "))) {
+	    a = a.replace(". ", "<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + a + "</h1></html>");
 	Var.answerBox1.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getB() + "</h1></html>");
+	String b = Var.problem.getB();
+	while (!b.equals(b.replace(". ", "<br /> "))) {
+	    b = b.replace(". ", "<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + b + "</h1></html>");
 	Var.answerBox2.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getC() + "</h1></html>");
+	String c = Var.problem.getC();
+	while (!c.equals(c.replace(". ", "<br /> "))) {
+	    c = c.replace(". ", "<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + c + "</h1></html>");
 	Var.answerBox3.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getD() + "</h1></html>");
+	String d = Var.problem.getD();
+	while (!d.equals(d.replace(". ", "<br /> "))) {
+	    d = d.replace(". ", "<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + d + "</h1></html>");
 	Var.answerBox4.add(text);
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getE() + "</h1></html>");
+	String e = Var.problem.getE();
+	while (!e.equals(e.replace(". ", "<br /> "))) {
+	    e = e.replace(". ", "<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + e + "</h1></html>");
 	Var.answerBox5.add(text);
     }
     
     private static void correctAnswerText() {
 	Var.correctAnswerBox.removeAll();
 	JLabel text;
-	text = new JLabel("<html><br /><br /><br /><br /><h1>" + Var.problem.getCorrectAnswer() + "</h1></html>");
+	String correctAnswer = Var.problem.getCorrectAnswer();
+	while (!correctAnswer.equals(correctAnswer.replace(". ", ".<br /> "))) {
+	    correctAnswer = correctAnswer.replace(". ", ".<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><h1>" + correctAnswer + "</h1></html>");
 	Var.correctAnswerBox.add(text);
     }
     
     private static void answerExlpanationText() {
 	Var.answerExplanationBox.removeAll();
 	JLabel text;
+	String explanation = Var.problem.getExplanation();
+	while (!explanation.equals(explanation.replace(". ", ".<br /> "))) {
+	    explanation = explanation.replace(". ", ".<br /> ");
+	}
 	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>"
-		+ Var.problem.getExplanation() + "</h1></html>");
+		+ explanation + "</h1></html>");
 	Var.answerExplanationBox.add(text);
     }
     
