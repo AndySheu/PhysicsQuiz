@@ -86,11 +86,15 @@ public class Main {
 	Var.frameElements.add(Var.answerExplanationBox);
 	
 	Var.ironClaw = new IronClaw();
-	Var.ironClaw.setLoc(25, 640);
+	Var.ironClaw.setLoc(10, 640);
 	JLabel txt = new JLabel("<html><br /><br /><br /><h1>Stats</h1></html>");
 	txt.setForeground(Color.white);
 	Var.ironClaw.add(txt);
 	Var.frameElements.add(Var.ironClaw);
+	
+	Var.skipBox = new SkipBox();
+	Var.skipBox.setLoc(1200, 700);
+	Var.frameElements.add(Var.skipBox);
 	
 	// Necessary to get the last element entered to work pre-loop
 	// The following code doesn't add anything though
@@ -150,9 +154,7 @@ public class Main {
 								 // clicked
 			if (c instanceof AnswerBox) {
 			    nextMode();
-			} else {
 			}
-		    } else {
 		    }
 		}
 		break;
@@ -198,6 +200,12 @@ public class Main {
 		break;
 	}
 	updateScreen();
+    }
+    
+    public static void skipQuestion() {
+	Var.mode = Var.CORRECT_ANSWER;
+	nextMode();
+	nextMode();
     }
     
     public static void updateScreen() {
@@ -250,8 +258,11 @@ public class Main {
     private static void questionText() {
 	JLabel text;
 	Var.questionBox.removeAll();
-	text = new JLabel(
-		"<html><br /><br /><br /><br /><br /><br /><h1>" + Var.problem.getQuestion() + "</h1></html>");
+	String question = Var.problem.getQuestion();
+	while (!question.equals(question.replace(". ", ".<br /> "))) {
+	    question = question.replace(". ", ".<br /> ");
+	}
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><h1>" + question + "</h1></html>");
 	text.setForeground(Color.yellow);
 	Var.questionBox.add(text);
     }
