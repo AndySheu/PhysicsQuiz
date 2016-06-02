@@ -148,12 +148,46 @@ public class ProblemManagement {
 	problem = new Problem("Which of the following is NOT true for a concave lens?", "Concave lens are divergent", "The image is virtual", "The image is upright", "The image is larger than the object", "The image forms on the near side. of the lens", "The image is larger than the object", "");
 	problems.add(problem);
 	problem = new Problem("Which of the following is true when light enters a denser medium?", "v increases, λ decreases,. and n increases", "v increases, λ decreases,. and n decreases", "v decreases, λ increases,. and n increases", "v decreases, λ decreases,. and n increases", "v decreases, λ decreases,. and n decreases", "v decreases, λ decreases,. and n increases", "");
+	problems.add(problem); // ** ** //
+	problem = new Problem("What does the variable m refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "A specific maximum or minimum", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable L refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "Distance from slits to screen", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable d refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "Slit spacing", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable x_m refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "Distance measured to. maximum or minimum", "");
+	problems.add(problem);
+	problem = new Problem("What does the variable θ_m refer to in physical optics?", "A specific maximum or minimum", "Distance measured to. maximum or minimum", "Angle measured to. maximum or minimum", "Slit spacing", "Distance from slits to screen", "Angle measured to. maximum or minimum", "");
+	problems.add(problem);
+	problem = new Problem("In physical optics, what is the equation to calculate x_m?", "x_m = (mL)/d", "x_m = mλL", "x_m = (mλL)/d", "x_ m = mλLd", "x_m = m/d", "x_m = (mλL)/d", "");
+	problems.add(problem);
+	problem = new Problem("Light on two narrow slits is used to project an* interference pattern onto a screen. How will the interference pattern (xm) change if the distance between* the slits is doubled?", "(x_m)/2", "2x_m", "(x_m)/4", "x_m", "4x_m", "(x_m)/2", "");
+	problems.add(problem);
+	problem = new Problem("What does a polarizing filter do?", "(A) Disperses light into. different wavelengths", "(B) Only allows light with the correct. direction of vibration to. pass through", "(C) Absorbs certain wavelengths. of light", "(A) and (C)", "None of the above", "(B) Only allows light with the correct. direction of vibration to. pass through", "");
+	problems.add(problem);
+	problem = new Problem("An object is placed on the principal axis of a convex lens a distance* 9.72 times the length of the focal length. The image formed will be:", "Real, upright, enlarged", "Real, inverted, and smaller", "Virtual, upright, and enlarged", "Virtual, upright, and smaller", "No image", "Real, inverted, and smaller", "");
+	problems.add(problem);
+	problem = new Problem("An object is placed on the principal axis of a convex lens a distance* 2.54 times the length of the focal length. The image formed will be:", "Real, inverted, enlarged", "Real, inverted, and smaller", "Virtual, upright, and enlarged", "Virtual, upright, and same size", "No image", "Real, inverted, and smaller", "");
+	problems.add(problem);
+	problem = new Problem("An object is placed on the principal axis of a convex lens a distance* 2 times the length of the focal length. The image formed will be:", "Real, upright, enlarged", "Real, inverted, and same size", "Real, inverted, and smaller", "Virtual, upright, and enlarged", "No image", "Real, inverted, and same size", "");
+	problems.add(problem);
+	problem = new Problem("An object is placed on the principal axis of a convex lens a distance* 1.678 times the length of the focal length. The image formed will be:", "Real, upright, enlarged", "Real, inverted, enlarged", "Virtual, upright, and enlarged", "Virtual, upright, and smaller", "No image", "Real, inverted, enlarged", "");
+	problems.add(problem);
+	problem = new Problem("An object is placed on the principal axis of a convex lens the focal point. The image formed will be:", "Real, upright, enlarged", "Real, inverted, enlarged", "Real, inverted, and smaller", "Virtual, upright, and enlarged", "No image", "No image", "");
+	problems.add(problem);
+	problem = new Problem("An object is placed on the principal axis of a convex lens a distance* 0.118 times the length of the focal length. The image formed will be:", "Real, upright, enlarged", "Real, inverted, enlarged", "Real, inverted, and smaller", "Virtual, upright, and enlarged", "Virtual, upright, and smaller", "Virtual, upright, and enlarged", "");
+	problems.add(problem);
+	problem = new Problem("Which object placement creates no image?", "d = 2f", "d = 3f", "f < d < 2f", "d = f", "d < f", "d = f", "");
+	problems.add(problem);
+	problem = new Problem("Which object placement creates a virtual image?", "d = 2f", "d = 3f", "f < d < 2f", "d = f", "d < f", "d < f", "");
+	problems.add(problem);
+	problem = new Problem("Which object placement creates an image behind the* object if the mirror is in front?", "d = 2f", "d = 3f", "f < d < 2f", "d = f", "d < f", "d < f", "");
 	problems.add(problem);
     }
   //@formatter:on
     
     public static Problem getProblem() {
-	if (question < 1000) { // Sets first 3 questions always (in order).
+	if (question < 87) { // Sets first 87 questions always (in order).
 	    question++;
 	    int questionNumber = question - 1;
 	    lineNumber = 12 + (2 * questionNumber);

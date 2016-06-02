@@ -265,7 +265,8 @@ public class Main {
 	while (!question.equals(question.replace("*", "<br />"))) {
 	    question = question.replace("*", "<br />");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><br /><h1>" + question + "<br />(" + ProblemManagement.getLineNumber() +")</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><br /><h1>" + question + "<br />("
+		+ ProblemManagement.getLineNumber() + ")</h1></html>");
 	text.setForeground(Color.yellow);
 	Var.questionBox.add(text);
     }
@@ -327,8 +328,8 @@ public class Main {
 	while (!explanation.equals(explanation.replace(". ", ".<br /> "))) {
 	    explanation = explanation.replace(". ", ".<br /> ");
 	}
-	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>"
-		+ explanation + "</h1></html>");
+	text = new JLabel("<html><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><h1>" + explanation
+		+ "</h1></html>");
 	Var.answerExplanationBox.add(text);
     }
     
@@ -393,18 +394,19 @@ public class Main {
 	    } else {
 		Var.streak++;
 	    }
-	    if (Var.streak == 3) {
-		JOptionPane.showMessageDialog(Var.frame, "3 in a row!");
-	    } else if (Var.streak == 5) {
-		JOptionPane.showMessageDialog(Var.frame, "5 straight!");
-	    } else if (Var.streak == 10) {
-		
-		JOptionPane.showMessageDialog(Var.frame, "10 in a row!");
-	    } else if (Var.streak == 75) {
-		JOptionPane.showMessageDialog(Var.frame,
-			"If this was the test, you would have aced it! 75 correct answers in a row!");
-	    } else {
-		JOptionPane.showMessageDialog(Var.frame, "Correct!");
+	    if (Var.DIALOGUE) {
+		if (Var.streak == 3) {
+		    JOptionPane.showMessageDialog(Var.frame, "3 in a row!");
+		} else if (Var.streak == 5) {
+		    JOptionPane.showMessageDialog(Var.frame, "5 straight!");
+		} else if (Var.streak == 10) {
+		    JOptionPane.showMessageDialog(Var.frame, "10 in a row!");
+		} else if (Var.streak == 75) {
+		    JOptionPane.showMessageDialog(Var.frame,
+			    "If this was the test, you would have aced it! 75 correct answers in a row!");
+		} else {
+		    JOptionPane.showMessageDialog(Var.frame, "Correct!");
+		}
 	    }
 	} else {
 	    Var.incorrect++;
@@ -413,16 +415,18 @@ public class Main {
 	    } else {
 		Var.streak--;
 	    }
-	    if (Var.streak == -4) {
-		JOptionPane.showMessageDialog(Var.frame, "Uh-oh! You'd be better off guessing...");
-	    } else if (Var.streak == -7) {
-		JOptionPane.showMessageDialog(Var.frame,
-			"That's 5 wrong. Maybe think a little longer or review some more?");
-	    } else if (Var.streak == -75) {
-		JOptionPane.showMessageDialog(Var.frame,
-			"You know what you're doing! You have just missed an entire test's worth of questions!");
-	    } else {
-		JOptionPane.showMessageDialog(Var.frame, "Incorrect!");
+	    if (Var.DIALOGUE) {
+		if (Var.streak == -4) {
+		    JOptionPane.showMessageDialog(Var.frame, "Uh-oh! You'd be better off guessing...");
+		} else if (Var.streak == -7) {
+		    JOptionPane.showMessageDialog(Var.frame,
+			    "That's 5 wrong. Maybe think a little longer or review some more?");
+		} else if (Var.streak == -75) {
+		    JOptionPane.showMessageDialog(Var.frame,
+			    "You know what you're doing! You have just missed an entire test's worth of questions!");
+		} else {
+		    JOptionPane.showMessageDialog(Var.frame, "Incorrect!");
+		}
 	    }
 	}
 	return correct;

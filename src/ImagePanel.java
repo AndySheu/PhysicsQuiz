@@ -65,7 +65,7 @@ public class ImagePanel extends JPanel {
     }
     
     public boolean checkClicked(int cx, int cy) {
-	if (cx > x && cx < (x + width) && cy > y && cy < (y + height)) {
+	if (cx > x && cx < (x + width) && cy > (y + Var.VERTICAL_SHIFT_CORRECTION) && cy < (y + height + Var.VERTICAL_SHIFT_CORRECTION)) {
 	    clicked();
 	    return true;
 	}
