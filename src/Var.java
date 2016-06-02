@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 
 public class Var {
-    public static final String VERSION = "4.3";
+    public static final String VERSION = "5.0";
     
     public static JFrame frame;
     public static Color backgroundColor = Color.orange;
@@ -37,6 +37,6 @@ public class Var {
     public static final int MAX_HEIGHT = 896;
     public static final int MAX_WIDTH = 1440;
     public static final int VERTICAL_SHIFT_CORRECTION = 45;
-    public static final boolean TESTING = true;
-    public static final boolean DIALOGUE = false;
+    public static final boolean TESTING = false;
+    public static final boolean DIALOGUE = true;
 }

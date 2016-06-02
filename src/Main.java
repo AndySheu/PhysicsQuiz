@@ -18,7 +18,7 @@ public class Main {
     
     private static void runInit() {
 	long time = System.currentTimeMillis();
-	Var.frame = new JFrame("Physics Version " + Var.VERSION);
+	Var.frame = new JFrame("Physics Version " + Var.VERSION + " -- By Andy Sheu and Dhruv Jhamb (Period 5)");
 	Var.frame.setBackground(Var.backgroundColor);
 	Var.frameElements = new ArrayList<ImagePanel>();
 	
@@ -113,7 +113,7 @@ public class Main {
 	
 	Var.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	runLoop(); // Does it once.
-	nextMode();
+//	nextMode();
 	System.out.println("Ready in " + (System.currentTimeMillis() - time) + " milliseconds...");
 	
 	Var.frame.remove(text);
@@ -127,6 +127,8 @@ public class Main {
 	answerExplanationVisible(false);
 	correctVisible(false);
 	incorrectVisible(false);
+	Var.ironClaw.setVisible(false);
+	Var.skipBox.setVisible(false);
 	Var.frame.setBackground(Var.backgroundColor);
     }
     
@@ -146,8 +148,9 @@ public class Main {
     
     public static void mousePressed(int x, int y) {
 	switch (Var.mode) {
-	    // case Var.INTRO:
-	    // nextMode();
+	    case Var.INTRO:
+		nextMode();
+		break;
 	    case Var.SELECT_ANSWER:
 		for (ImagePanel c : Var.frameElements) {
 		    if (c.isVisible() && c.checkClicked(x, y)) { // visible and
@@ -217,6 +220,8 @@ public class Main {
 		answerExplanationVisible(false);
 		correctVisible(false);
 		incorrectVisible(false);
+		Var.ironClaw.setVisible(false);
+		Var.skipBox.setVisible(false);
 		Var.frame.setBackground(Var.backgroundColor);
 		break;
 	    case Var.SELECT_ANSWER:
@@ -225,6 +230,8 @@ public class Main {
 		answerExplanationVisible(false);
 		correctVisible(false);
 		incorrectVisible(false);
+		Var.ironClaw.setVisible(true);
+		Var.skipBox.setVisible(true);
 		break;
 	    case Var.CORRECT_ANSWER:
 		questionVisible(true);
@@ -265,8 +272,8 @@ public class Main {
 	while (!question.equals(question.replace("*", "<br />"))) {
 	    question = question.replace("*", "<br />");
 	}
-	if(Var.TESTING) {
-	   question += "<br />(" + ProblemManagement.getLineNumber() + ")";
+	if (Var.TESTING) {
+	    question += "<br />(" + ProblemManagement.getLineNumber() + ")";
 	}
 	text = new JLabel("<html><br /><br /><br /><br /><h1>" + question + "</h1></html>");
 	text.setForeground(Color.yellow);

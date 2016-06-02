@@ -4,11 +4,25 @@ import java.util.ArrayList;
 public class ProblemManagement {
     private static ArrayList<Problem> problems = new ArrayList<Problem>();
     private static Problem problem;
-    private static int question = 103, lineNumber;
+    private static int question = 0, lineNumber;
     
   //@formatter:off
     // Sets everything. Call this or everything will throw errors
     public static void init() {
+	problem = new Problem("During an isometric process, 450 joules of heat are* removed from a trapped gas. Which statement is true?", "The volume of the gas. is increasing", "The volume of the gas. is decreasing", "The temperature of the gas. is increasing", "The temperature of the gas. is decreasing", "Word = 450 J", "The temperature of the gas. is decreasing", "In an isometric process, volume is constant and work is zero. Therefore, internal energy decreases and temperature decreases.");
+	problems.add(problem);
+	problem = new Problem("A heat engine operates between 25ºC and 100ºC. The theoretical efficiency is most nearly: ", "10%", "20%", "50%", "70%", "80%", "20%", "e = (373 K - 298 K)/(373 K) = 0.2 = 20%");
+	problems.add(problem);
+	problem = new Problem("Three charges from left to right, A, B, and C, exist in a region of space. Charge A attracts B and B repels C. If A is positive, what is the sign of charge C?", "Positive", "Negative", "Left", "Right", "Neutral", "Negative", "A is positive and attracts B so B is negative. B repels C so C is also negative.");
+	problems.add(problem);
+	problem = new Problem("A 120-gram sample of iodine-131 has a half-life of 8.0 days. How much of the original sample remains after 24 days?", "120 g", "60 g", "30 g ", "15 g", "7.5 g", "15 g", "");
+	problems.add(problem);
+	problem = new Problem("Who came up with the plum pudding model of an atom?", "Max Planck", "Ernest Rutherford", "Albert Einstein", "Niels Bohr", "JJ Thomson", "JJ Thomson", "");
+	problems.add(problem);
+	problem = new Problem("During a thermodynamic process, 200 joules of heat are added to a gas* while 300 joules of work are done by the gas. Determine the change in internal energy.", "500 J", "100 J", "-100 J", "-500 J", "0 J", "-100 J", "ΔU = Q + W = 200 J - 300 J = -100 J");
+	problems.add(problem);
+	problem = new Problem("Two charges (q_1 and q_2) are separated by a distance r. What happens to force F if the charge on q_1 is doubled?", "0.25 F", "0.5 F", "1 F", "2 F", "4 F", "2 F", "F=(kq_1q_2)/d^2");
+	problems.add(problem);
 	problem = new Problem("What unit are charges measured in?", "Coulomb", "Volt", "Ampere", "Newton", "Watt", "Coulomb", "");
 	problems.add(problem);
 	problem = new Problem("What unit are electric potentials measured in?", "Coulomb", "Volt", "Ampere", "Teslas", "Watt", "Volt", "");
@@ -214,7 +228,7 @@ public class ProblemManagement {
 	problem = new Problem("A heat engine operates between 25ºC and 100ºC. The theoretical efficiency is most nearly: ", "10%", "20%", "50%", "70%", "80%", "20%", "e = (373 K - 298 K)/(373 K) = 0.2 = 20%");
 	problems.add(problem);
 	problem = new Problem("During an isometric process, 450 joules of heat are* removed from a trapped gas. Which statement is true?", "The volume of the gas. is increasing", "The volume of the gas. is decreasing", "The temperature of the gas. is increasing", "The temperature of the gas. is decreasing", "Word = 450 J", "The temperature of the gas. is decreasing", "In an isometric process, volume is constant and work is zero. Therefore, internal energy decreases and temperature decreases.");
-	problems.add(problem); // ** ** //
+	problems.add(problem);
 	problem = new Problem("What does the variable α represent?", "Thermal conductivity ", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Coefficient of linear expansion", "");
 	problems.add(problem);
 	problem = new Problem("What does the variable R represent?", "Thermal conductivity ", "Specific heat capacity", "Universal gas constant", "Heat", "Coefficient of linear expansion", "Universal gas constant", "");
@@ -243,11 +257,39 @@ public class ProblemManagement {
 	problems.add(problem);
 	problem = new Problem("What is the final pressure of a gas that expands from 1 L* at 10º C to 10 L at 100º C if the original pressure was 3 atm?", "0.3 atm", "0.4 atm", "3 atm", "4 atm", "30 atm", "0.4 atm", "");
 	problems.add(problem);
+	problem = new Problem("Who came up with the plum pudding model of an atom?", "Max Planck", "Ernest Rutherford", "Albert Einstein", "Niels Bohr", "JJ Thomson", "JJ Thomson", "");
+	problems.add(problem);
+	problem = new Problem("Who discovered that the atom is mostly empty space* with a tiny region containing all the positive charge?", "Max Planck", "Ernest Rutherford", "Albert Einstein", "Niels Bohr", "JJ Thomson", "Ernest Rutherford", "");
+	problems.add(problem);
+	problem = new Problem("Who discovered that electrons occupy exact energy levels?", "Max Planck", "Ernest Rutherford", "Albert Einstein", "Niels Bohr", "JJ Thomson", "Niels Bohr", "");
+	problems.add(problem);
+	problem = new Problem("Who developed an equation that relates the energy* of a photon of light to its wavelength?", "Max Planck", "Ernest Rutherford", "Albert Einstein", "Niels Bohr", "JJ Thomson", "Albert Einstein", "");
+	problems.add(problem);
+	problem = new Problem("Who developed a mathematical relationship for atomic oscillations?", "Max Planck", "Ernest Rutherford", "Albert Einstein", "Niels Bohr", "JJ Thomson", "Max Planck", "");
+	problems.add(problem);
+	problem = new Problem("What is the equation that relates the energy of* a photo of light to its wavelength?", "E = hcλ", "E = (hc)/λ", "E = λ/(hc)", "E = hc", "E = hλ", "E = (hc)/λ", "");
+	problems.add(problem);
+	problem = new Problem("How are the frequency and wavelength affected when* the energy of photons is doubled?", "Frequency is halved,. wavelength is doubled", "Frequency is doubled,. wavelength is halved", "Frequency is halved,. wavelength is halved", "Frequency is doubled,. wavelength is doubled", "Frequency is doubled,. wavelength is 0", "Frequency is doubled,. wavelength is halved", "The frequency of light is directly proportional to energy. The wavelength of light isinversely proportional to energy.");
+	problems.add(problem);
+	problem = new Problem("What is an alpha particle?", "Photons that lack atomic. numbers and mass numbers", "An electron produced when. a neutron undergoes a transmutation. to become a proton", "A product of radioactive decay. and nuclear reactions", "The nucleus of a helium atom. without any electrons", "None of the above", "The nucleus of a helium atom. without any electrons", "");
+	problems.add(problem);
+	problem = new Problem("What is a beta particle?", "Photons that lack atomic. numbers and mass numbers", "An electron produced when. a neutron undergoes a transmutation. to become a proton", "A product of radioactive decay. and nuclear reactions", "The nucleus of a helium atom. without any electrons", "None of the above", "An electron produced when. a neutron. undergoes a transmutation. to become a proton", "");
+	problems.add(problem);
+	problem = new Problem("What is a neutrino?", "Photons that lack atomic. numbers and mass numbers", "An electron produced when. a neutron undergoes a transmutation. to become a proton", "A product of radioactive decay. and nuclear reactions", "The nucleus of a helium atom. without any electrons", "None of the above", "A product of radioactive decay. and nuclear reactions", "");
+	problems.add(problem);
+	problem = new Problem("What is a gamma ray?", "Photons that lack atomic. numbers and mass numbers", "An electron produced when. a neutron undergoes a transmutation. to become a proton", "A product of radioactive decay. and nuclear reactions", "The nucleus of a helium atom. without any electrons", "None of the above", "Photons that lack atomic. numbers and mass numbers", "");
+	problems.add(problem);
+	problem = new Problem("A 120-gram sample of iodine-131 has a half-life of 8.0 days. How much of the original sample remains after 24 days?", "120 g", "60 g", "30 g ", "15 g", "7.5 g", "15 g", "");
+	problems.add(problem);
+	problem = new Problem("What is fission?", "Combining smaller atoms. to make a larger atom", "The splitting of a large. atom into smaller atoms", "Radioactive decay", "All of the above", "None of the above", "The splitting of a large. atom into smaller atoms", "");
+	problems.add(problem);
+	problem = new Problem("What is fusion?", "Combining smaller atoms. to make a larger atom", "The splitting of a large. atom into smaller atoms", "Radioactive decay", "All of the above", "None of the above", "Combining smaller atoms. to make a larger atom", "");
+	problems.add(problem);
     }
   //@formatter:on
     
     public static Problem getProblem() {
-	if (question < 117) { // Sets first x questions always (in order).
+	if (question < 7) { // Sets first 7 questions always (in order).
 	    question++;
 	    int questionNumber = question - 1;
 	    lineNumber = 12 + (2 * questionNumber);
